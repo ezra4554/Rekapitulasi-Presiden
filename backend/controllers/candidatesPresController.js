@@ -75,9 +75,7 @@ const candidatesPresController = {
   deleteCandidate: async (req, res) => {
     try {
       const candidateId = req.params;
-      const deletedCandidate = await Candidates.deleteOne({
-        _id: candidateId,
-      });
+      const deletedCandidate = await Candidates.findByIdAndDelete(candidateId);
       return apiHandler({
         res,
         status: "success",
