@@ -191,7 +191,7 @@ export default function LoginView() {
           }}
         >
           <Typography variant="h4" align="center">
-            MONITOR PILEG
+            MONITOR PILPRES
           </Typography>
 
           <Typography variant="body2" sx={{ mt: 2, mb: 5 }} align="center">

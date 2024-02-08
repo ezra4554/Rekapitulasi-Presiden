@@ -15,7 +15,7 @@ import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 
 import Iconify from 'src/components/iconify';
 
-export default function PartyCardV2({ party }) {
+export default function PartyCardV2({ candidate }) {
   return (
     <Accordion defaultExpanded>
       <AccordionSummary
@@ -24,8 +24,8 @@ export default function PartyCardV2({ party }) {
         id="panel1a-header"
       >
         <CardHeader
-          avatar={<Avatar aria-label="recipe">{`${party.paslonNumber}`}</Avatar>}
-          subheader={`Pasang Calon No ${party.paslonNumber}`}
+          avatar={<Avatar aria-label="recipe">{`${candidate.paslonNumber}`}</Avatar>}
+          subheader={`Pasang Calon No ${candidate.paslonNumber}`}
         />
       </AccordionSummary>
       <AccordionDetails>
@@ -39,15 +39,17 @@ export default function PartyCardV2({ party }) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                <TableRow key={party._id}>
+                <TableRow key={candidate._id}>
                   <TableCell style={{ textAlign: 'center' }}>
                     <div>
-                      {party.capresDetail.name}
+                      {candidate.capresDetail.name}
                       <br />&<br />
-                      {party.cawapresDetail.name}
+                      {candidate.cawapresDetail.name}
                     </div>
                   </TableCell>
-                  <TableCell style={{ textAlign: 'center' }}>{party?.total_votes || 0}</TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>
+                    {candidate?.total_votes || 0}
+                  </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
@@ -59,5 +61,5 @@ export default function PartyCardV2({ party }) {
 }
 
 PartyCardV2.propTypes = {
-  party: PropTypes.any,
+  candidate: PropTypes.any,
 };

@@ -231,9 +231,9 @@ export default function PengisianSuaraView() {
                 Input suara sah di Kelurahan {tps.village_name} - {tps.number}
               </Typography>
               <Grid container spacing={2} mb={5}>
-                {candidates.map((candidate) => (
-                  <Grid item xs={12} sm={6} md={4} key={candidate._id}>
-                    <PartyCard party={candidate} setVotesResult={setVotesResult} />
+                {candidates.map((data) => (
+                  <Grid item xs={12} sm={6} md={4} key={data._id}>
+                    <PartyCard candidate={data} setVotesResult={setVotesResult} />
                   </Grid>
                 ))}
               </Grid>
@@ -342,7 +342,7 @@ export default function PengisianSuaraView() {
                 <Grid container spacing={2} mb={5}>
                   {candidates.map((data) => (
                     <Grid item xs={12} sm={6} md={4} key={data._id}>
-                      <PartyCard party={data} setVotesResult={setVotesResult} />
+                      <PartyCard candidate={data} setVotesResult={setVotesResult} />
                     </Grid>
                   ))}
                 </Grid>

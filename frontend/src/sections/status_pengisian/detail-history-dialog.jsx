@@ -23,7 +23,7 @@ const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={r
 
 export default function DetailHistory({ tps_id }) {
   const [open, setOpen] = React.useState(false);
-  const [parties, setParties] = useState([]);
+  const [candidates, setCandidates] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handleClickOpen = () => {
@@ -39,7 +39,7 @@ export default function DetailHistory({ tps_id }) {
     try {
       setLoading(true);
       const dataTps = await tpsService.getTpsById(tps_id);
-      setParties(dataTps.data.valid_ballots_detail);
+      setCandidates(dataTps.data.valid_ballots_detail);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -62,9 +62,9 @@ export default function DetailHistory({ tps_id }) {
           {loading && <LinearProgress color="primary" variant="query" />}
           {!loading && (
             <Grid container spacing={2} mb={5}>
-              {parties.map((party) => (
-                <Grid item xs={12} sm={6} md={4} key={party._id}>
-                  <PartyCardV2 party={party} />
+              {candidates.map((data) => (
+                <Grid item xs={12} sm={6} md={4} key={data._id}>
+                  <PartyCardV2 candidate={data} />
                 </Grid>
               ))}
             </Grid>

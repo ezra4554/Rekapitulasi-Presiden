@@ -34,9 +34,9 @@ export default function DetailHistory({ candidates }) {
         </AppBar>
         <List>
           <Grid container spacing={2} mb={5}>
-            {candidates.map((party) => (
-              <Grid item xs={12} sm={6} md={4} key={party._id}>
-                <PartyCardV2 party={party} />
+            {candidates.map((data) => (
+              <Grid item xs={12} sm={6} md={4} key={data._id}>
+                <PartyCardV2 candidate={data} />
               </Grid>
             ))}
           </Grid>

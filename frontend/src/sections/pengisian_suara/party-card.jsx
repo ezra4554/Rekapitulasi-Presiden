@@ -14,22 +14,22 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import TableContainer from '@mui/material/TableContainer';
 
-export default function PartyCard({ party, setVotesResult }) {
+export default function PartyCard({ candidate, setVotesResult }) {
   const [, setVotesData] = React.useState([]);
 
   const handleChange = (event) => {
     const value = parseInt(event.target.value, 10) || 0;
 
     const updatedVotes = {
-      candidates_id: party._id,
-      paslonNumber: party.paslonNumber,
+      candidates_id: candidate._id,
+      paslonNumber: candidate.paslonNumber,
       capresDetail: {
-        name: party.capresDetail.name,
-        partyName: party.capresDetail.partyName,
+        name: candidate.capresDetail.name,
+        partyName: candidate.capresDetail.partyName,
       },
       cawapresDetail: {
-        name: party.cawapresDetail.name,
-        partyName: party.cawapresDetail.partyName,
+        name: candidate.cawapresDetail.name,
+        partyName: candidate.cawapresDetail.partyName,
       },
       total_votes: value,
     };
@@ -38,7 +38,7 @@ export default function PartyCard({ party, setVotesResult }) {
 
     // Use the updatedVotesData directly in setVotesResult
     setVotesResult((prevVotesResult) => [
-      ...prevVotesResult.filter((result) => result.candidates_id !== party._id),
+      ...prevVotesResult.filter((result) => result.candidates_id !== candidate._id),
       updatedVotes,
     ]);
   };
@@ -46,8 +46,8 @@ export default function PartyCard({ party, setVotesResult }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        avatar={<Avatar aria-label="recipe">{`${party.paslonNumber}`}</Avatar>}
-        subheader={`Pasang Calon No ${party.paslonNumber}`}
+        avatar={<Avatar aria-label="recipe">{`${candidate.paslonNumber}`}</Avatar>}
+        subheader={`Pasang Calon No ${candidate.paslonNumber}`}
       />
 
       <CardContent>
@@ -60,12 +60,12 @@ export default function PartyCard({ party, setVotesResult }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              <TableRow key={party._id}>
+              <TableRow key={candidate._id}>
                 <TableCell style={{ textAlign: 'center' }}>
                   <div>
-                    {party.capresDetail.name}
+                    {candidate.capresDetail.name}
                     <br />&<br />
-                    {party.cawapresDetail.name}
+                    {candidate.cawapresDetail.name}
                   </div>
                 </TableCell>
                 <TableCell>
@@ -88,6 +88,6 @@ export default function PartyCard({ party, setVotesResult }) {
 }
 
 PartyCard.propTypes = {
-  party: PropTypes.any,
+  candidate: PropTypes.any,
   setVotesResult: PropTypes.any,
 };

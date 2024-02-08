@@ -48,7 +48,6 @@ export default function DashboardView() {
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
-  console.log(dataCandidates);
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
