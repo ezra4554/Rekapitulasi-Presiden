@@ -34,12 +34,6 @@ const navConfig = [
     accessibleRoles: ['admin'],
   },
   {
-    title: 'data suara caleg',
-    path: '/suara-caleg',
-    icon: <Iconify icon="material-symbols-light:ballot-outline" />,
-    accessibleRoles: ['admin'],
-  },
-  {
     title: 'cetak data',
     path: '/cetak-data',
     icon: <Iconify icon="material-symbols:print-outline" />,
