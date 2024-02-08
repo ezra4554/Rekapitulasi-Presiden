@@ -95,7 +95,6 @@ export default function DashboardView() {
       element.style.display = 'inline';
     });
   };
-  console.log(dataCandidates);
   const reactToPrint = useReactToPrint({
     pageStyle: `@media print {
       @page {
@@ -215,7 +214,7 @@ export default function DashboardView() {
                 chart={{
                   series: dataCandidates.map((item) => ({
                     label: `No. Urut ${item.paslonNumber}`,
-                    value: item.total_votes_party,
+                    value: item.total_votes,
                   })),
                 }}
               />
@@ -228,7 +227,7 @@ export default function DashboardView() {
               chart={{
                 series: dataCandidates.map((item) => ({
                   label: `No. Urut ${item.paslonNumber}`,
-                  value: item.total_votes_party,
+                  value: item.total_votes,
                 })),
               }}
               style={{

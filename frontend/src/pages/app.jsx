@@ -8,7 +8,7 @@ export default function AppPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard | Rekapitulasi Legislatif UI </title>
+        <title> Dashboard | Rekapitulasi Calon Presiden UI </title>
       </Helmet>
 
       <DashboardView />

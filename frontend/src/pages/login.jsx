@@ -8,7 +8,7 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Login | Rekapitulasi Legislatif UI </title>
+        <title> Dashboard | Rekapitulasi Calon Presiden UI </title>
       </Helmet>
 
       <LoginView />

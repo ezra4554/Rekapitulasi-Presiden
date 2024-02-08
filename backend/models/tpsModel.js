@@ -63,7 +63,7 @@ const tpsSchema = new mongoose.Schema({
           type: String,
         },
       },
-      total_votes_party: {
+      total_votes: {
         type: Number,
         default: 0,
         min: [0, "Total suara partai harus non-negatif."],

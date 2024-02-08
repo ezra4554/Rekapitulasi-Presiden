@@ -45,7 +45,7 @@ const historySchema = mongoose.Schema(
                 type: String,
               },
             },
-            total_votes_party: Number,
+            total_votes: Number,
             paslonNumber: String,
           },
         ],

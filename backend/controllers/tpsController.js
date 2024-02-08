@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 import Village from "../models/villageModel.js";
 import Tps from "../models/tpsModel.js";
 import History from "../models/historyModel.js";
-import Party from "../models/partyModel.js";
 import apiHandler from "../utils/apiHandler.js";
 import Candidates from "../models/candidatesPresModel.js";
 
 const tpsController = {
+  //blm fix bulk
   bulkTps: async (req, res) => {
     try {
       const bulkTpsData = req.body;
@@ -130,7 +130,7 @@ const tpsController = {
       }
 
       // Validate existence of parties and candidates
-      let totalVotesAllParties = 0; // Variable to track total votes for all parties
+      let totalVotesAllCandidates = 0; // Variable to track total votes for all parties
 
       for (const item of validBallotsDetail) {
         if (item.candidates_id) {
@@ -154,17 +154,18 @@ const tpsController = {
             name: candidateExists.cawapresDetail.name,
             partyName: candidateExists.cawapresDetail.partyName,
           };
+          totalVotesAllCandidates += item.total_votes;
         }
       }
 
       // Check if total votes for all parties exceed maxVotes
 
-      if (totalVotesAllParties > tps.total_voters) {
+      if (totalVotesAllCandidates > tps.total_voters) {
         return apiHandler({
           res,
           status: "error",
           code: 400,
-          message: `Total votes for all parties exceed the maximum allowed votes, total votes for all parties: ${totalVotesAllParties}, max votes: ${tps.total_voters}`,
+          message: `Total votes for all parties exceed the maximum allowed votes, total votes for all parties: ${totalVotesAllCandidates}, max votes: ${tps.total_voters}`,
           error: null,
         });
       }
@@ -175,8 +176,8 @@ const tpsController = {
         {
           total_voters: tps.total_voters,
           valid_ballots_detail: validBallotsDetail,
-          total_valid_ballots: totalVotesAllParties,
-          total_invalid_ballots: tps.total_voters - totalVotesAllParties,
+          total_valid_ballots: totalVotesAllCandidates,
+          total_invalid_ballots: tps.total_voters - totalVotesAllCandidates,
           is_fillBallot: true,
         }
       );
@@ -187,8 +188,8 @@ const tpsController = {
 
         total_voters: tps.total_voters,
         valid_ballots_detail: validBallotsDetail,
-        total_valid_ballots: totalVotesAllParties,
-        total_invalid_ballots: tps.total_voters - totalVotesAllParties,
+        total_valid_ballots: totalVotesAllCandidates,
+        total_invalid_ballots: tps.total_voters - totalVotesAllCandidates,
       };
 
       // Save the history entry to VotesResultHistory

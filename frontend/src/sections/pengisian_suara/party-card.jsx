@@ -21,7 +21,7 @@ export default function PartyCard({ party, setVotesResult }) {
     const value = parseInt(event.target.value, 10) || 0;
 
     const updatedVotes = {
-      _id: party._id,
+      candidates_id: party._id,
       paslonNumber: party.paslonNumber,
       capresDetail: {
         name: party.capresDetail.name,
@@ -31,14 +31,14 @@ export default function PartyCard({ party, setVotesResult }) {
         name: party.cawapresDetail.name,
         partyName: party.cawapresDetail.partyName,
       },
-      total_votes_party: value,
+      total_votes: value,
     };
 
     setVotesData(updatedVotes);
 
     // Use the updatedVotesData directly in setVotesResult
     setVotesResult((prevVotesResult) => [
-      ...prevVotesResult.filter((result) => result._id !== party._id),
+      ...prevVotesResult.filter((result) => result.candidates_id !== party._id),
       updatedVotes,
     ]);
   };

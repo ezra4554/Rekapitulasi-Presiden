@@ -8,7 +8,7 @@ export default function PengisianSuaraPage() {
   return (
     <>
       <Helmet>
-        <title> Pengisian Suara | Pemilihan Legislatif </title>
+        <title> Dashboard | Rekapitulasi Calon Presiden UI </title>
       </Helmet>
 
       <PengisianSuaraView />

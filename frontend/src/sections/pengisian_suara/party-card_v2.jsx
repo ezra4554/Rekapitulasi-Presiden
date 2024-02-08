@@ -16,7 +16,6 @@ import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 import Iconify from 'src/components/iconify';
 
 export default function PartyCardV2({ party }) {
-  console.log(party);
   return (
     <Accordion defaultExpanded>
       <AccordionSummary
@@ -48,9 +47,7 @@ export default function PartyCardV2({ party }) {
                       {party.cawapresDetail.name}
                     </div>
                   </TableCell>
-                  <TableCell style={{ textAlign: 'center' }}>
-                    {party?.total_votes_party || 0}
-                  </TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>{party?.total_votes || 0}</TableCell>
                 </TableRow>
               </TableBody>
             </Table>

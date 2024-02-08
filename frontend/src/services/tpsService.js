@@ -9,6 +9,7 @@ const tpsService = {
       const response = await axios.post(`${BASE_URL}/fill/${tpsId}`, validBallots, {
         withCredentials: true,
       });
+      console.log(validBallots);
       return response.data;
     } catch (error) {
       return error.response.data;

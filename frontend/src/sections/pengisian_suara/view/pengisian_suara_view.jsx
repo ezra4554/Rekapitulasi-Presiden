@@ -25,7 +25,6 @@ import {
 
 import userAtom from 'src/atoms/userAtom';
 import tpsService from 'src/services/tpsService';
-import partyService from 'src/services/partyService';
 import historyService from 'src/services/historyService';
 import districtService from 'src/services/districtService';
 import candidateService from 'src/services/candidatePresService';
@@ -42,7 +41,6 @@ export default function PengisianSuaraView() {
   const [kecamatan, setKecamatan] = useState('');
   const [kelurahan, setKelurahan] = useState('');
   const [tps, setTps] = useState('');
-  const [parties, setParties] = useState([]);
   const [candidates, setCandidates] = useState([]);
   const [kecamatans, setKecamatans] = useState([]);
   const [kelurahans, setKelurahans] = useState([]);
@@ -66,29 +64,21 @@ export default function PengisianSuaraView() {
 
     return formattedDate;
   }
-  console.log(candidates);
   useEffect(() => {
     const handleGetAllParties = async () => {
       try {
         setLoading(true);
-        const result = await partyService.getAllPartiesWithcandidates();
-        const resultt = await candidateService.getAllCandidates();
-
-        setParties(result);
-        setCandidates(resultt);
-        // console.log(parties);
-
+        const result = await candidateService.getAllCandidates();
+        setCandidates(result);
         setLoading(false);
       } catch (error) {
         setKecamatans([]);
-        setParties([]);
         setCandidates([]);
         setLoading(false);
       }
     };
     handleGetAllParties();
   }, []);
-
   useEffect(() => {
     const handleGetAllDistricts = async () => {
       try {
@@ -107,14 +97,13 @@ export default function PengisianSuaraView() {
         setLoading(false);
       } catch (error) {
         setKecamatans([]);
-        setParties([]);
+        setCandidates([]);
         setLoading(false);
       }
     };
     handleGetAllDistricts();
   }, [user.role, user.tps_id]);
 
-  console.log(history);
   const handleSubmit = async () => {
     try {
       setLoading(true);

@@ -247,7 +247,7 @@ export default function KecamatanView() {
                   chart={{
                     series: dataCandidates.map((item) => ({
                       label: `No. Urut ${item.paslonNumber}`,
-                      value: item.total_votes_party,
+                      value: item.total_votes,
                     })),
                   }}
                 />
@@ -259,7 +259,7 @@ export default function KecamatanView() {
                 chart={{
                   series: dataCandidates.map((item) => ({
                     label: `No. Urut ${item.paslonNumber}`,
-                    value: item.total_votes_party,
+                    value: item.total_votes,
                   })),
                 }}
                 style={{

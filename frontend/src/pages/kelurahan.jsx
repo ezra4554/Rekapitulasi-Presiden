@@ -8,7 +8,7 @@ export default function KelurahanPage() {
   return (
     <>
       <Helmet>
-        <title> Kelurahan| Rekapitulasi Legislatif UI </title>
+        <title> Dashboard | Rekapitulasi Calon Presiden UI </title>
       </Helmet>
 
       <KelurahanView />

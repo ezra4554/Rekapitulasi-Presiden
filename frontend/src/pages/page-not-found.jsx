@@ -8,7 +8,7 @@ export default function NotFoundPage() {
   return (
     <>
       <Helmet>
-        <title> 404 Page Not Found </title>
+        <title> Dashboard | Rekapitulasi Calon Presiden UI </title>
       </Helmet>
 
       <NotFoundView />

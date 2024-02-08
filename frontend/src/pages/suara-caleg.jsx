@@ -8,7 +8,7 @@ export default function SuaraCalegPage() {
   return (
     <>
       <Helmet>
-        <title>Suara Caleg | Pemilihan Legislatif </title>
+        <title> Dashboard | Rekapitulasi Calon Presiden UI </title>
       </Helmet>
 
       <SuaraCalegView />

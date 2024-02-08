@@ -8,7 +8,7 @@ export default function StatusPengisianPage() {
   return (
     <>
       <Helmet>
-        <title> Status Pengisian | Pemilihan Legislatif </title>
+        <title> Dashboard | Rekapitulasi Calon Presiden UI </title>
       </Helmet>
 
       <StatusPengisianView />

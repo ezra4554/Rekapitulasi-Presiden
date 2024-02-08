@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./db/connectDB.js";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes.js";
-import partyRoutes from "./routes/party.routes.js";
+
 import districtRoutes from "./routes/district.routes.js";
 import villageRoutes from "./routes/village.routes.js";
 import userRoutes from "./routes/user.routes.js";
@@ -37,7 +37,6 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/parties", partyRoutes);
 app.use("/api/v1/districts", districtRoutes);
 app.use("/api/v1/villages", villageRoutes);
 app.use("/api/v1/tps", tpsRoutes);
