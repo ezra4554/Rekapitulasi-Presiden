@@ -18,14 +18,14 @@ router.get(
   rekapController.getAllTpsByVillageIdWithResultVote
 );
 
-// router.get('/caleg', rekapController.getAllCalegsRekap)
-// router.get(
-//   "/caleg/district/:districtId",
-//   rekapController.getAllCalegsRekapByDistrictId
-// );
-// router.get(
-//   "/caleg/village/:villageId",
-//   rekapController.getAllCalegsRekapByVillageId
-// );
+router.get("/candidate", rekapController.getAllCandidatesRekap);
+router.get(
+  "/candidate/district/:districtId",
+  rekapController.getAllCandidatesRekapByDistrictId
+);
+router.get(
+  "/candidate/village/:villageId",
+  rekapController.getAllCandidatesRekapByVillageId
+);
 
 export default router;

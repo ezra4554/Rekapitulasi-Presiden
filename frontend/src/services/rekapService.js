@@ -46,7 +46,6 @@ const rekapService = {
       return error.response.data;
     }
   },
-
   getAllRekapBallotsByDistrictId: async (districtId) => {
     try {
       const response = await axios.get(`${BASE_URL}/ballot-district/${districtId}`, {
@@ -57,9 +56,9 @@ const rekapService = {
       return error.response.data;
     }
   },
-  getAllCalegVotes: async () => {
+  getAllCandidateVotes: async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/caleg`, {
+      const response = await axios.get(`${BASE_URL}/candidate`, {
         withCredentials: true,
       });
       return response.data;
@@ -67,9 +66,9 @@ const rekapService = {
       return error.response.data;
     }
   },
-  getAllCalegVotesInDistrict: async (districtId) => {
+  getAllCandidateVotesInDistrict: async (districtId) => {
     try {
-      const response = await axios.get(`${BASE_URL}/caleg/district/${districtId}`, {
+      const response = await axios.get(`${BASE_URL}/candidate/district/${districtId}`, {
         withCredentials: true,
       });
       return response.data;
@@ -77,9 +76,9 @@ const rekapService = {
       return error.response.data;
     }
   },
-  getAllCalegVotesInVillage: async (villageId) => {
+  getAllCandidateVotesInVillage: async (villageId) => {
     try {
-      const response = await axios.get(`${BASE_URL}/caleg/village/${villageId}`, {
+      const response = await axios.get(`${BASE_URL}/candidate/village/${villageId}`, {
         withCredentials: true,
       });
       return response.data;

@@ -1,9 +1,10 @@
-import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 import Village from "../models/villageModel.js";
 import Tps from "../models/tpsModel.js";
 import History from "../models/historyModel.js";
 import apiHandler from "../utils/apiHandler.js";
 import Candidates from "../models/candidatesPresModel.js";
+import User from "../models/userModel.js";
 
 const tpsController = {
   //blm fix bulk
@@ -67,6 +68,22 @@ const tpsController = {
 
         // Save the updated village with the new TPS references
         await village.save();
+
+        //create user for each tps
+        const salt = await bcrypt.genSalt(10);
+        const username = (text) => {
+          text.toLowerCase().replace(/ /g, "_");
+        };
+        for (const tps of insertedTps) {
+          const user = {
+            username: username(tps.number),
+            password: await bcrypt.hash(username(tps.number), salt),
+            tps_id: tps._id,
+            village_id: tps.village_id,
+            district_id: tps.district_id,
+          };
+          await User.create(user);
+        }
       }
 
       return apiHandler({

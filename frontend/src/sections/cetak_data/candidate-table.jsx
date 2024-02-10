@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import { Grid, TableRow, TableCell } from '@mui/material';
 import TableContainer from '@mui/material/TableContainer';
 
 import Scrollbar from 'src/components/scrollbar';
 
+import UserTableRow from './user-table-row';
 import UserTableHead from './user-table-head';
 import { applyFilter, getComparator } from './utils';
 
-export default function PartyTable({ parties }) {
+export default function CandidateTable({ candidate }) {
   const [order, setOrder] = useState('asc');
 
   const [orderBy, setOrderBy] = useState('name');
@@ -26,7 +27,7 @@ export default function PartyTable({ parties }) {
   };
 
   const dataFiltered = applyFilter({
-    inputData: parties,
+    inputData: candidate,
     comparator: getComparator(order, orderBy),
   });
   return (
@@ -40,19 +41,21 @@ export default function PartyTable({ parties }) {
                 orderBy={orderBy}
                 onRequestSort={handleSort}
                 headLabel={[
-                  { id: 'no', label: 'No', align: 'center' },
-                  { id: 'name', label: 'Partai' },
-                  { id: 'total_votes_party', label: 'Jumlah Suara' },
+                  { id: 'isVerified', label: 'No', align: 'center' },
+                  { id: 'candidate_name', label: 'Nama' },
+                  { id: 'paslonNumber', label: 'Paslon Nomor' },
+                  { id: 'total_votes', label: 'Jumlah Suara' },
                 ]}
               />
               <TableBody>
                 {dataFiltered.map((row, index) => (
-                  <TableRow hover tabIndex={-1} role="checkbox">
-                    <TableCell align="center">{index + 1}</TableCell>
-                    <TableCell>{row.name}</TableCell>
-
-                    <TableCell>{row.total_votes_party}</TableCell>
-                  </TableRow>
+                  <UserTableRow
+                    key={row.candidate_id}
+                    no={index + 1}
+                    name={`${row.capresDetail.name} & ${row.cawapresDetail.name}`}
+                    role={row.number_of_votes}
+                    company={row.total_votes}
+                  />
                 ))}
               </TableBody>
             </Table>
@@ -63,6 +66,6 @@ export default function PartyTable({ parties }) {
   );
 }
 
-PartyTable.propTypes = {
-  parties: PropTypes.array,
+CandidateTable.propTypes = {
+  candidate: PropTypes.array,
 };
