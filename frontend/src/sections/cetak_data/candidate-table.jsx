@@ -30,6 +30,7 @@ export default function CandidateTable({ candidate }) {
     inputData: candidate,
     comparator: getComparator(order, orderBy),
   });
+  console.log(candidate);
   return (
     <Grid item>
       <Card>
@@ -53,8 +54,8 @@ export default function CandidateTable({ candidate }) {
                     key={row.candidate_id}
                     no={index + 1}
                     name={`${row.capresDetail.name} & ${row.cawapresDetail.name}`}
-                    role={row.number_of_votes}
-                    company={row.total_votes}
+                    role={row.total_votes}
+                    company={`No. Urut ${row.paslonNumber}`}
                   />
                 ))}
               </TableBody>
