@@ -74,6 +74,7 @@ const tpsController = {
         const username = (text) => {
           text.toLowerCase().replace(/ /g, "_");
         };
+
         for (const tps of insertedTps) {
           const user = {
             username: username(tps.number),
