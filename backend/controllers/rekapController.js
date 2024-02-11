@@ -238,12 +238,12 @@ const rekapController = {
         res,
         status: "success",
         code: 200,
-        message: "Get caleg result on all tps successfully",
+        message: "Get candidate result on all tps successfully",
         data: valid_ballots_detail,
         error: null,
       });
     } catch (error) {
-      console.error("Error getting total results by caleg:", error);
+      console.error("Error getting total results by candidate:", error);
       return apiHandler({
         res,
         status: "error",
@@ -269,12 +269,12 @@ const rekapController = {
         res,
         status: "success",
         code: 200,
-        message: "Get caleg result by district successfully",
+        message: "Get candidate result by district successfully",
         data: valid_ballots_detail,
         error: null,
       });
     } catch (error) {
-      console.error("Error getting total results by caleg:", error);
+      console.error("Error getting total results by candidate:", error);
       return apiHandler({
         res,
         status: "error",
@@ -300,12 +300,12 @@ const rekapController = {
         res,
         status: "success",
         code: 200,
-        message: "Get caleg result by district successfully",
+        message: "Get candidate result by district successfully",
         data: valid_ballots_detail,
         error: null,
       });
     } catch (error) {
-      console.error("Error getting total results by caleg:", error);
+      console.error("Error getting total results by candidate:", error);
       return apiHandler({
         res,
         status: "error",
