@@ -72,14 +72,15 @@ const tpsController = {
         //create user for each tps
         const salt = await bcrypt.genSalt(10);
         const username = (text) => {
-          text.toLowerCase().replace(/ /g, "_");
+          return text.toLowerCase().replace(/ /g, "_");
         };
 
-        for (const tps of insertedTps) {
+        for (const tps of correspondingTps) {
           const user = {
             username: username(tps.number),
             password: await bcrypt.hash(username(tps.number), salt),
             tps_id: tps._id,
+            role: "user_tps",
             village_id: tps.village_id,
             district_id: tps.district_id,
           };
